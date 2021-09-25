@@ -34,7 +34,7 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 		->getWhere( $dbr, 'rev_user', $user );
 
 	foreach ( $revWhere['orconds'] as $key => $cond ) {
-		$tsField = $key === 'actor' ? 'revactor_timestamp' : 'rev_timestamp';
+		$tsField = 'rev_timestamp';
 
 		$longEdits += $dbr->selectField(
 			[ 'revision' ] + $revWhere['tables'],

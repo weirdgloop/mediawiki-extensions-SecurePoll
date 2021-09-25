@@ -113,7 +113,7 @@ class MakeSimpleList extends Maintenance {
 				foreach ( $revWhere['orconds'] as $key => $cond ) {
 					$conds = [ $cond ];
 					if ( $before !== false ) {
-						$conds[] = ( $key === 'actor' ? 'revactor_timestamp' : 'rev_timestamp' )
+						$conds[] = ( 'rev_timestamp' )
 							. ' < ' . $beforeQ;
 					}
 					if ( $this->hasOption( 'mainspace-only' ) ) {
