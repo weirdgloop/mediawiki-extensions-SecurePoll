@@ -113,7 +113,8 @@ class MakeSimpleList extends Maintenance {
 				foreach ( $revWhere['orconds'] as $key => $cond ) {
 					$conds = [ $cond ];
 					if ( $before !== false ) {
-						$conds[] = ( 'rev_timestamp' )
+						$conds[] = ( isset( $revWhere['tables']['temp_rev_user'] ) // SCHEMA_COMPAT_READ_TEMP
+							? 'revactor_timestamp' : 'rev_timestamp' )
 							. ' < ' . $beforeQ;
 					}
 					if ( $this->hasOption( 'mainspace-only' ) ) {
