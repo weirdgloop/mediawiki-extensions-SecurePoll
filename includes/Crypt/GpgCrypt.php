@@ -269,7 +269,7 @@ class GpgCrypt {
 			],
 			$params
 		);
-		$command = Shell::command( $params )->includeStderr();
+		$command = Shell::command( $params )->restrict( Shell::RESTRICT_NONE )->includeStderr();
 
 		$result = $command->execute();
 
